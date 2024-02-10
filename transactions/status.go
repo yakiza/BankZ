@@ -15,13 +15,13 @@ func (ts *TransactionStatus) String() string {
 	var encoded string
 	switch *ts {
 	case inProgress:
-		encoded = "inProgress"
+		encoded = "in_progress"
 	case completed:
 		encoded = "completed"
 	case cancelled:
 		encoded = "cancelled"
 	case onHold:
-		encoded = "onHold"
+		encoded = "on_hold"
 	default:
 		return "Transaction status unrecognized"
 	}
@@ -31,13 +31,13 @@ func (ts *TransactionStatus) String() string {
 
 func (ts *TransactionStatus) FromString(status string) error {
 	switch status {
-	case "inProgress":
+	case "in_progress":
 		*ts = inProgress
 	case "completed":
 		*ts = completed
 	case "cancelled":
 		*ts = cancelled
-	case "onHold":
+	case "on_hold":
 		*ts = onHold
 	default:
 		return fmt.Errorf("unrecognized transaction status")

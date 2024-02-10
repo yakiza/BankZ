@@ -9,7 +9,7 @@ const (
 	savings
 )
 
-func (t *AccountType) ToString() string {
+func (t *AccountType) String() string {
 	var encoded string
 	switch *t {
 	case main:

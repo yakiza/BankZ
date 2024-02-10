@@ -10,7 +10,7 @@ const (
 	transfer
 )
 
-func (t *TransactionType) ToString() string {
+func (t *TransactionType) String() string {
 	var encoded string
 	switch *t {
 	case deposit:

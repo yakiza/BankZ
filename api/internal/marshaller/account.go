@@ -24,7 +24,7 @@ func UnmarshalAccount(account Account) (accounts.Account, error) {
 
 func MarshalAccount(account accounts.Account) Account {
 	return Account{
-		Type:   account.Type.ToString(),
+		Type:   account.Type.String(),
 		Holder: account.Holder,
 	}
 }
