@@ -10,3 +10,27 @@ type EventStoreUseCases interface {
 	// QueryByType retrieves all events of the type provided
 	QueryByType(eventType types.Event) ([]Event, error)
 }
+
+var _ EventStoreUseCases = &UseCases{}
+
+type UseCases struct {
+}
+
+func (u UseCases) Append(event Event) error {
+	//TODO implement me
+	panic("implement me")
+}
+
+func (u UseCases) QueryByTransactionID(transactionID string) ([]Event, error) {
+	//TODO implement me
+	panic("implement me")
+}
+
+func (u UseCases) QueryByType(eventType types.Event) ([]Event, error) {
+	//TODO implement me
+	panic("implement me")
+}
+
+func NewEventStoreUseCases() UseCases {
+	return UseCases{}
+}
