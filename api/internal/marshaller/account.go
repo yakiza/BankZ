@@ -5,26 +5,26 @@ import (
 )
 
 type Account struct {
-	Type   string   `json:"type"`
-	Holder Customer `json:"holder"`
+	Type   string `json:"type"`
+	Holder string `json:"holder"`
 }
 
-type Customer struct {
-	FirstName string `json:"first_name"`
-	LastName  string `json:"last_name"`
-	Email     string `json:"email"`
-}
-
-func UnmarshalAccount(account Account) accounts.Account {
-	return accounts.Account{
-		Type:   account.Type,
-		Holder: account.Holder,
+func UnmarshalAccount(account Account) (accounts.Account, error) {
+	var accType accounts.AccountType
+	err := accType.FromString(account.Type)
+	if err != nil {
+		return accounts.Account{}, err
 	}
+
+	return accounts.Account{
+		Type:   accType,
+		Holder: account.Holder,
+	}, err
 }
 
 func MarshalAccount(account accounts.Account) Account {
 	return Account{
-		Type:   account.Type,
+		Type:   account.Type.ToString(),
 		Holder: account.Holder,
 	}
 }

@@ -17,7 +17,12 @@ func (h AccountHandler) CreateAccount(w http.ResponseWriter, r *http.Request) {
 	var account marshaller.Account
 	err := json.NewDecoder(r.Body).Decode(&account)
 
-	err = h.useCase.Create(r.Context(), marshaller.UnmarshalAccount(account))
+	marshalledAcc, err := marshaller.UnmarshalAccount(account)
+	if err != nil {
+		w.WriteHeader(http.StatusBadRequest)
+	}
+
+	err = h.useCase.Create(r.Context(), marshalledAcc)
 	if err != nil {
 		w.WriteHeader(http.StatusBadRequest)
 	}

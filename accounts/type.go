@@ -2,14 +2,14 @@ package accounts
 
 import "fmt"
 
-type accountType int
+type AccountType int
 
 const (
-	main accountType = iota
+	main AccountType = iota
 	savings
 )
 
-func (t *accountType) ToString() string {
+func (t *AccountType) ToString() string {
 	var encoded string
 	switch *t {
 	case main:
@@ -23,7 +23,7 @@ func (t *accountType) ToString() string {
 	return encoded
 }
 
-func (t *accountType) FromString(accType string) error {
+func (t *AccountType) FromString(accType string) error {
 	switch accType {
 	case "main":
 		*t = main
