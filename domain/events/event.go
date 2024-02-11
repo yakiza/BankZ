@@ -7,6 +7,7 @@ import (
 
 type Event struct {
 	ID        string
+	Version   int
 	Type      types.Event
 	Timestamp time.Time
 }
