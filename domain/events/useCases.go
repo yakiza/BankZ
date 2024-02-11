@@ -1,6 +1,8 @@
 package events
 
-import "github.com/yakiza/BankZ/events/types"
+import (
+	"github.com/yakiza/BankZ/domain/events/types"
+)
 
 type EventStoreUseCases interface {
 	// Append responsible for adding new events to the event store

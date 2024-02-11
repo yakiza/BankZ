@@ -3,8 +3,8 @@ package api
 import (
 	"encoding/json"
 	"github.com/go-chi/chi/v5"
-	"github.com/yakiza/BankZ/accounts"
 	"github.com/yakiza/BankZ/api/internal/marshaller"
+	"github.com/yakiza/BankZ/domain/accounts"
 	"net/http"
 )
 

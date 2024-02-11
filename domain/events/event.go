@@ -1,7 +1,7 @@
 package events
 
 import (
-	"github.com/yakiza/BankZ/events/types"
+	"github.com/yakiza/BankZ/domain/events/types"
 	"time"
 )
 

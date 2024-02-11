@@ -6,6 +6,7 @@ import (
 	"log"
 )
 
+// AccountUseCases describes the Account UseCases
 type AccountUseCases interface {
 	// Create responsible for calling the respective persistence functions to create a new account.
 	Create(ctx context.Context, account Account) error

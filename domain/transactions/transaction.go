@@ -1,7 +1,7 @@
 package transactions
 
 import (
-	"github.com/yakiza/BankZ/accounts"
+	"github.com/yakiza/BankZ/domain/accounts"
 	"time"
 )
 

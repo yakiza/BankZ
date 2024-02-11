@@ -4,6 +4,7 @@ import (
 	"time"
 )
 
+// Account Entity/Aggregate
 type Account struct {
 	Number    string
 	Type      AccountType

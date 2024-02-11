@@ -2,7 +2,7 @@ package store
 
 import (
 	"context"
-	"github.com/yakiza/BankZ/accounts"
+	"github.com/yakiza/BankZ/domain/accounts"
 )
 
 type AccountRepository interface {

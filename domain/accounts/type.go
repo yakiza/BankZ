@@ -2,6 +2,7 @@ package accounts
 
 import "fmt"
 
+// AccountType encapsulates the types of account available
 type AccountType int
 
 const (

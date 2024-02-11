@@ -3,7 +3,7 @@ package fakeDB
 import (
 	"context"
 	"errors"
-	"github.com/yakiza/BankZ/accounts"
+	"github.com/yakiza/BankZ/domain/accounts"
 	"github.com/yakiza/BankZ/store"
 	"sync"
 )
