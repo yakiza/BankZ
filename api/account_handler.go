@@ -14,7 +14,7 @@ type AccountHandler struct {
 }
 
 func (h AccountHandler) CreateAccount(w http.ResponseWriter, r *http.Request) {
-	var account marshaller.Account
+	var account marshaller.AccountDTO
 	err := json.NewDecoder(r.Body).Decode(&account)
 
 	marshalledAcc, err := marshaller.UnmarshalAccount(account)

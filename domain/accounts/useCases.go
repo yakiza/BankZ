@@ -1,36 +1,32 @@
 package accounts
 
 import (
-	"context"
+	"github.com/yakiza/BankZ/domain/command"
+	"github.com/yakiza/BankZ/domain/events"
 	"github.com/yakiza/BankZ/store"
-	"log"
+	"github.com/yakiza/BankZ/store/eventstore"
 )
 
 // AccountUseCases describes the Account UseCases
 type AccountUseCases interface {
-	// Create responsible for calling the respective persistence functions to create a new account.
-	Create(ctx context.Context, account Account) error
+	CommandHandler(cmd command.Command) ([]events.Event, error)
 }
 
 var _ AccountUseCases = &UseCase{}
 
 type UseCase struct {
-	repo store.AccountRepository
+	eventStore eventstore.EventStore
+	repository store.AccountRepository
 }
 
-func (uc *UseCase) Create(ctx context.Context, account Account) error {
-	log.Printf("Creating Account for %s", account.Holder)
-
-	err := uc.repo.CreateAccount(ctx, account)
-	if err != nil {
-		return err
-	}
-
-	return nil
+func (uc UseCase) CommandHandler(cmd command.Command) ([]events.Event, error) {
+	//TODO implement me
+	panic("implement me")
 }
 
-func NewAccountUseCase(repo store.AccountRepository) UseCase {
+func NewAccountUseCase(eventStore eventstore.EventStore, repository store.AccountRepository) UseCase {
 	return UseCase{
-		repo: repo,
+		eventStore: eventStore,
+		repository: repository,
 	}
 }

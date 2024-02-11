@@ -1,29 +1,29 @@
 package marshaller
 
 import (
-	accounts2 "github.com/yakiza/BankZ/domain/accounts"
+	"github.com/yakiza/BankZ/domain/accounts"
 )
 
-type Account struct {
+type AccountDTO struct {
 	Type   string `json:"type"`
 	Holder string `json:"holder"`
 }
 
-func UnmarshalAccount(account Account) (accounts2.Account, error) {
-	var accType accounts2.AccountType
+func UnmarshalAccount(account AccountDTO) (accounts.Account, error) {
+	var accType accounts.AccountType
 	err := accType.FromString(account.Type)
 	if err != nil {
-		return accounts2.Account{}, err
+		return accounts.Account{}, err
 	}
 
-	return accounts2.Account{
+	return accounts.Account{
 		Type:   accType,
 		Holder: account.Holder,
 	}, err
 }
 
-func MarshalAccount(account accounts2.Account) Account {
-	return Account{
+func MarshalAccount(account accounts.Account) AccountDTO {
+	return AccountDTO{
 		Type:   account.Type.String(),
 		Holder: account.Holder,
 	}
